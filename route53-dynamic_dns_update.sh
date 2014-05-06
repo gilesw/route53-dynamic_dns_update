@@ -85,8 +85,8 @@ dns_transaction() {
     info "Current dns $3 matches the aws allocation no action required"
   else
     info "Creating $1 A $2 dns record"
-    aws-perl --fail crrs $zone --action DELETE --value $public_dns_ip --type A --name $public_name --ttl $ttl
-    aws-perl crrs $zone --action CREATE --value $public_ip --type A --name $public_name --ttl $ttl
+    aws-perl --fail crrs $zone --action DELETE --value $3 --type A --name $1 --ttl $ttl
+    aws-perl crrs $zone --action CREATE --value $2 --type A --name $1 --ttl $ttl
   fi
 }
 
